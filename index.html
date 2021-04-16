@@ -43,7 +43,7 @@
         <ul>
           <li><a class="nav-link active" href="#header">Home</a></li>
           <li><a class="nav-link" href="#about">Acerca de</a></li>
-          <li><a class="nav-link" href="#resume">Resumen</a></li>
+          <li><a class="nav-link" href="#resume">CV</a></li>
           <li><a class="nav-link" href="#services">Portafolio</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
@@ -73,7 +73,7 @@
         <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
           <h3>Desarrollador Backend</h3>
           <p class="fst-italic">
-            He iniciado mi interés en el área informática ya hace 3 años, el ultimo me he dedicado a aprender
+            He iniciado mi interés en el área informática ya hace 3 años, el ultimo año me he dedicado a aprender
             diferentes lenguajes Backend sobre todo Python, aplicado en el desarrollo de aplicaciones.
           </p>
           <div class="row">
@@ -252,7 +252,30 @@
             <h5>2018 - 2018</h5>
             <p><em>Modalidad Virtual de la Universidad Francisco Gavidia</em></p>
           </div>
+
+          <h3 class="resume-title">Certificados</h3>
+          <div class="resume-item">
+            <h4>Scrum Fundamentals Certified</h4>
+            <h5>Mar 2020</h5>
+            <p><em>SCRUMstudy - Accreditation Body for Scrum</em></p>
+          </div>
+          <div class="resume-item">
+            <h4>Python Avanzado</h4>
+            <h5>Jun 2020</h5>
+            <p><em>LinkedIn</em></p>
+          </div>
+          <div class="resume-item">
+            <h4>Conviértete en desarrollador Python</h4>
+            <h5>Jun 2020</h5>
+            <p><em>LinkedIn</em></p>
+          </div>
+          <div class="resume-item">
+            <h4>Fundamentos del desarrollo web: Tecnologías web</h4>
+            <h5>Jun 2018</h5>
+            <p><em>LinkedIn</em></p>
+          </div>
         </div>
+
         <div class="col-lg-6">
           <h3 class="resume-title">Experiencia Laboral</h3>
           <div class="resume-item">
@@ -361,29 +384,19 @@
 
       <div class="section-title">
         <h2>Contact</h2>
-        <p>Contact Me</p>
+        <p>Contactame</p>
       </div>
 
       <div class="row mt-2">
 
-        <div class="col-md-6 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-map"></i>
-            <h3>My Address</h3>
-            <p>A108 Adam Street, New York, NY 535022</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
+        <div class="col-md-6 mt-4 d-flex align-items-stretch">
           <div class="info-box">
             <i class="bx bx-share-alt"></i>
             <h3>Social Profiles</h3>
             <div class="social-links">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <a href="https://twitter.com/JesusLinaresIt" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="https://www.linkedin.com/in/jesus-linares/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.instagram.com/dev_jesus.linares/" class="instagram"><i class="bi bi-instagram"></i></a>
             </div>
           </div>
         </div>
@@ -391,20 +404,14 @@
         <div class="col-md-6 mt-4 d-flex align-items-stretch">
           <div class="info-box">
             <i class="bx bx-envelope"></i>
-            <h3>Email Me</h3>
-            <p>contact@example.com</p>
-          </div>
-        </div>
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-phone-call"></i>
-            <h3>Call Me</h3>
-            <p>+1 5589 55488 55</p>
+            <h3>Email</h3>
+            <p>jesus.linares320@gmail.com</p>
           </div>
         </div>
       </div>
 
-      <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
+      <form data-licensekey="" action="forms/contact.php" method="post" role="form" class="php-email-form mt-4" 
+      enctype="multipart/form-data" novalidate autocomplete="on">
         <div class="row">
           <div class="col-md-6 form-group">
             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -417,7 +424,7 @@
           <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
         </div>
         <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+          <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message" required></textarea>
         </div>
         <div class="my-3">
           <div class="loading">Loading</div>

@@ -1,41 +1,67 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
+require "./PHPMailer-master/src/PHPMailer.php";
+require "./PHPMailer-master/src/SMTP.php";
+require "./PHPMailer-master/src/Exception.php";
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+use PHPMailer\PHPMailer\PHPMailer;
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
+
+function endsWith($haystack, $needle) {
+  return substr_compare($haystack, $needle, -strlen($needle)) === 0;
+}
+
+function sanitize_my_email($field) {
+  $field = filter_var($field, FILTER_SANITIZE_EMAIL);
+  if (filter_var($field, FILTER_VALIDATE_EMAIL)) {
+      return true;
   } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
+      return false;
   }
+}
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+if ( isset( $_POST['submit'] ) ) {
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+    extract($_POST);
 
-  echo $contact->send();
+    try {
+        $mail = new PHPMailer(true);
+
+        //Recipients
+        $from = 'jesus.linaresqa@gmail.com';
+        $to_mail = 'jesus.linares320@gmail.com';
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+        $mail->Username = $from;
+        //$mail->Password = 'hola.alberto124';
+        $mail->setFrom($from, 'Jesus Linares');                           // Add a recipient
+        $mail->addAddress($to_mail);                              // Name is optional
+
+
+        // Content
+        $mail->isHTML(true);  // Set email format to HTML
+        $mail->Subject = $subject;
+        $mail->Body = $message;
+        $mail->Body.= "<span><b>Email: </b></span>" . $email . "<br>";
+
+
+        //check if the email address is invalid $secure_check
+        $secure_check = sanitize_my_email($to_mail);
+        if ($secure_check) {
+          $mail->send();
+          header("location:../index.html");
+        } else { //send email
+          echo "Invalid input";
+
+        }
+
+    } catch(Exception $e) {
+      echo 'Message: ' . $e->getMessage();
+    }
+
+}
+
 ?>
