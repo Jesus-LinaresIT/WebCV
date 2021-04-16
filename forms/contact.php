@@ -28,7 +28,7 @@ if ( isset( $_POST['submit'] ) ) {
         $mail = new PHPMailer(true);
 
         //Recipients
-        $from = 'jesus.linaresqa@gmail.com';
+        $from = 'sender@asesoriait.com';
         $to_mail = 'jesus.linares320@gmail.com';
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
@@ -36,7 +36,7 @@ if ( isset( $_POST['submit'] ) ) {
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
         $mail->Username = $from;
-        //$mail->Password = 'hola.alberto124';
+        $mail->Password = 'Email Sender of AiT';
         $mail->setFrom($from, 'Jesus Linares');                           // Add a recipient
         $mail->addAddress($to_mail);                              // Name is optional
 
